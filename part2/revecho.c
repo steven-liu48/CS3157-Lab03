@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mylist.h"
 
 
@@ -19,7 +20,7 @@ static int findDude(struct List *list)
 
 static void print(void *p)
 {
-    printf("%s \n", p);
+    printf("%s \n", (char *)p);
 }
 
 static void die(const char *message)

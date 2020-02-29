@@ -1,12 +1,8 @@
-revecho: revecho.o mylist.o
-	gcc -g -Wall revecho.o mylist.o -o revecho
+revecho: revecho.o ../part1/libmylist.a
+	gcc -o revecho revecho.o -L../part1 -lmylist
 
-mylist.o: mylist.c mylist.h
-	gcc -c -g -Wall mylist.c
-
-revecho.o: revecho.c mylist.h
-	gcc -c -g -Wall revecho.c
-
+revecho.o: revecho.c ../part1/mylist.h
+	gcc -c revecho.c -I../part1
 
 .PHONY: vtest
 vtest: revecho
@@ -14,4 +10,4 @@ vtest: revecho
 
 .PHONY: clean
 clean:
-	rm -f *.o *.a mylist-test
+	rm -f *.o *.a revecho
